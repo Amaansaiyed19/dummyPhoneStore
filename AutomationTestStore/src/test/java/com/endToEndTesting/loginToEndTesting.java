@@ -1,0 +1,182 @@
+package com.endToEndTesting;
+
+import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.utilities.ExcelReader;
+
+import BasePage.BasePageAutomtion;
+import PageObjectModel.CommonLocator;
+import PageObjectModel.Home;
+import PageObjectModel.Oppo;
+import PageObjectModel.Samsung;
+import PageObjectModel.xiaomi;
+
+
+public class loginToEndTesting extends BasePageAutomtion {
+
+	public loginToEndTesting() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@BeforeClass
+	public void chromeSetup() throws IOException {
+		driver = getDriver();
+		driver.get(getUrl());
+	}
+
+	@Test(priority = 1, dataProvider = "product")
+	public void searchProduct(String productName) throws InterruptedException {
+		try {
+
+			driver.findElement(By.xpath("//div[@aria-label='Close']")).click();
+
+		} catch (Exception e) {
+
+			System.out.println("No popup found.");
+		}
+
+		Thread.sleep(1000);
+		Home home = new Home(driver);
+		home.getSearchbar().clear();
+		home.getSearchbar().click();
+		home.getSearchbar().sendKeys(productName, Keys.ENTER);
+
+		Thread.sleep(2000);
+
+	}
+
+	@DataProvider(name = "product")
+	public Object[][] search() throws InvalidFormatException, IOException {
+		
+		String path = System.getProperty("user.dir") + "\\src\\test\\java\\resources\\DummyPhoneWebsite.xlsx";
+		return ExcelReader.getExcelData(path, "products");
+		
+	}
+
+	@Test(priority = 2, dependsOnMethods = "searchProduct")
+	public void selectProduct() throws InterruptedException {
+
+		Oppo oppo = new Oppo(driver);
+		oppo.getFindX7().click();
+
+		CommonLocator locator = new CommonLocator(driver);
+		locator.getAddToCart().click();
+
+		Home home = new Home(driver);
+
+		home.getCategory().click();
+
+		Thread.sleep(3000);
+		home.getSamsung().click();
+
+	}
+
+	@Test(priority = 3, dependsOnMethods = "selectProduct")
+	public void validate() {
+
+		// For Samsung
+		String actualTitle = driver.findElement(By.xpath("//h1[@class='title']")).getText();
+		System.out.println(actualTitle);
+
+		String expectedTitle = "Samsung Dummy Phone";
+
+		assertEquals(actualTitle, expectedTitle, "Page not found in this page");
+
+	}
+
+	@Test(priority = 4, dependsOnMethods = "validate")
+	public void selectSamsungMobile() {
+
+		Samsung samsung = new Samsung(driver);
+		CommonLocator locator = new CommonLocator(driver);
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,800)");
+
+		samsung.getGalaxyS24Ultra().click();
+
+		locator.getAddToCart().click();
+
+	}
+
+	@Test(priority = 5)
+	public void selectXiaomiMobile() throws InterruptedException {
+
+		Home home = new Home(driver);
+		CommonLocator locator = new CommonLocator(driver);
+		
+		SoftAssert xiaomiAssert = new SoftAssert();
+		
+
+		home.getCategory().click();
+		
+		Thread.sleep(3000);
+		
+		home.getXiaomi().click();
+
+		// For Xiaomi
+		String XiaomiActualTitle = driver.findElement(By.xpath("//h1[@class='title']")).getText();
+		String XiaomiExpectedTitle = "XIAOMI Dummy Phone";
+
+		assertEquals(XiaomiActualTitle, XiaomiExpectedTitle, "Page not found in this page");
+
+		xiaomi xiaomi = new xiaomi(driver);
+		xiaomi.getMI14().click();
+		
+		String stockRemaining = driver.findElement(By.xpath("//span[@class=\"value\"]")).getText();
+		System.out.println(stockRemaining);
+		xiaomiAssert.assertTrue(stockRemaining.contentEquals("Temporarily Sold Out"), "");
+		
+		Thread.sleep(3000);
+		
+		locator.getAddToCart();
+		
+		Thread.sleep(3000);
+
+	}
+	
+	@Test(priority = 6, dependsOnMethods = "selectXiaomiMobile")
+	public void addToCartXiaomi() throws InterruptedException {
+		
+		CommonLocator locator = new CommonLocator(driver);
+		locator.getShoppingBasket().click();
+		
+		Thread.sleep(3000);
+		
+	}
+	
+	@Test(priority = 7, dependsOnMethods = "addToCartXiaomi")
+	public void ShoppingCart() throws InterruptedException {
+		
+		Thread.sleep(3000);
+		
+		String totalPrice = driver.findElement(By.xpath("//div[@class='card-footer subtotal text-end']")).getText();
+		System.out.println(totalPrice);
+		
+		Thread.sleep(3000);
+		
+		String expectedPrice = totalPrice;
+		
+		assertEquals(totalPrice, expectedPrice, "Price is wrong");
+		
+	}
+
+//	@AfterClass
+//	public void tearDown() {
+//	    driver.quit();
+//	}
+//	
+
+}

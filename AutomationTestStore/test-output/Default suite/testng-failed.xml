@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.endToEndTesting.loginToEndTesting">
+      <class name="com.endToEndTesting.orderCompleteTesting">
         <methods>
-          <include name="ShoppingCart"/>
-          <include name="chromeSetup"/>
-          <include name="addToCartXiaomi"/>
-          <include name="selectXiaomiMobile"/>
+          <include name="setup"/>
+          <include name="testMethod"/>
         </methods>
-      </class> <!-- com.endToEndTesting.loginToEndTesting -->
+      </class> <!-- com.endToEndTesting.orderCompleteTesting -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

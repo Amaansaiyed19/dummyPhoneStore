@@ -18,7 +18,7 @@ import PageObjectModel.Home;
 import PageObjectModel.customerInformation;
 import PageObjectModel.ipadMacbookCategories;
 
-@Listeners(com.listeners.TestListener.class)
+@Listeners({com.listeners.TestListener.class, com.listeners.RetryListener.class})
 public class orderCompleteTesting extends BasePageAutomtion {
 
 	public orderCompleteTesting() throws IOException {
@@ -82,6 +82,11 @@ public class orderCompleteTesting extends BasePageAutomtion {
 		;
 
 	}
+	
+	@Test(retryAnalyzer = com.listeners.RetryAnalyzer.class)
+	public void testMethod() {
+	    Assert.assertFalse(true); // Force fail to test retry
+	}
 
 	@Test(priority = 3)
 	public void CustomerDetails() throws InterruptedException {
@@ -89,6 +94,7 @@ public class orderCompleteTesting extends BasePageAutomtion {
 		//SoftAssert softAssert = new SoftAssert();
 
 		customerInformation details = new customerInformation(driver);
+		
 		details.getFirstname().sendKeys("John");
 		details.getLastName().sendKeys("Williamson");
 		details.getAddress1().sendKeys("forest");
@@ -111,7 +117,7 @@ public class orderCompleteTesting extends BasePageAutomtion {
 
 		details.getPrivacy().click();
 		
-		Assert.assertFalse(true);
+		//Assert.assertFalse(true);
 		 
 		details.getConfirmOrder().click();
 		

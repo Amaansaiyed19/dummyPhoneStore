@@ -33,7 +33,6 @@ public class Screenshot extends BasePageAutomtion {
 		try {
 			
 			FileUtils.copyFile(src, dest);
-			System.out.print("Screenshot taken for failed test cases" + filepath);
 		} catch (Exception e) {
 			// TODO: handle exception
 			

@@ -46,8 +46,18 @@ public class TestListener extends BasePageAutomtion implements ITestListener {
 		String testName = result.getName();
 
 		String screenshotsPath = Screenshot.takeScreenShots(driver, testName);
-		ITestListener.super.onTestFailure(result);
-
+		
+		test.get().fail(result.getThrowable()); // Log the exception
+		
+		try {
+			
+			test.get().addScreenCaptureFromPath(screenshotsPath, "Failure Screenshots");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 		System.out.println("test failed " + testName + "Screenshots saved at: " + screenshotsPath);
 	}
 	

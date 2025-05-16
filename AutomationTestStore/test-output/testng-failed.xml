@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.endToEndTesting.orderCompleteTesting">
+      <class name="com.endToEndTesting.loginToEndTesting">
         <methods>
-          <include name="setup"/>
-          <include name="testMethod"/>
+          <include name="UserLogin"/>
+          <include name="chromeSetup"/>
         </methods>
-      </class> <!-- com.endToEndTesting.orderCompleteTesting -->
+      </class> <!-- com.endToEndTesting.loginToEndTesting -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

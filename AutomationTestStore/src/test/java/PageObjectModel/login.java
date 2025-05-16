@@ -20,7 +20,6 @@ public class login {
 		this.driver = driver;
 	}
 	
-	
 	public WebElement getAccount() {
 		return driver.findElement(account);
 	}

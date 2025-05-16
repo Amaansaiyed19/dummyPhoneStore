@@ -28,56 +28,56 @@ public class Home {
 
 	By searchBar = By.xpath("//input[@type='search']");
 
-	//By addToCart = By.xpath("//button[contains(text(),'Add To Cart')]");
+	By addToCart = By.xpath("//button[contains(text(),'Add To Cart')]");
 
 	public Home(WebDriver driver) {
 		this.driver = driver;
 	}
 
 	public WebElement getCategory() {
-		return driver.findElement(category);
+		 return driver.findElement(category);
 
 	}
 	
 	public WebElement getIphone() {
-		return driver.findElement(iphone);
+		 return driver.findElement(iphone);
 
 	}
 
 	public WebElement getIpadMacbook() {
-		return driver.findElement(ipadMacbook);
+		 return driver.findElement(ipadMacbook);
 
 	}
 
 	public WebElement getVivo() {
-		return driver.findElement(vivo);
+		 return driver.findElement(vivo);
 	}
 
 	public WebElement getSamsung() {
-		return driver.findElement(samsung);
+		 return driver.findElement(samsung);
 	}
 
 	public WebElement getOneplus() {
-		return driver.findElement(onePlus);
+		 return driver.findElement(onePlus);
 	}
 
 	public WebElement getOppo() {
-		return driver.findElement(oppo);
+		 return driver.findElement(oppo);
 	}
 
 	public WebElement getXiaomi() {
-		return driver.findElement(xiaomi);
+		 return driver.findElement(xiaomi);
 	}
 
 	public WebElement getHuawei() {
-		return driver.findElement(huawei);
+		 return driver.findElement(huawei);
 	}
 
 	public WebElement getSearchbar() {
-		return driver.findElement(searchBar);
+		 return driver.findElement(searchBar);
 	}
 
-//	public WebElement getAddToCart() {
-//		return driver.findElement(addToCart);
-//	}
+	public WebElement getAddToCart() {
+	return driver.findElement(addToCart);
+	}
 }

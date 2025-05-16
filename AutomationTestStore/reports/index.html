@@ -55,7 +55,7 @@
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">May 13, 2025 05:56:18 PM</span>
+                    <span class="badge badge-primary">May 14, 2025 12:20:30 PM</span>
                 </a>
             </li>
         </ul>
@@ -72,6 +72,14 @@
         </a>
       </li>
             <li class="nav-item dropdown">
+        <a id="nav-ex" class="dropdown-toggle" href="exception.html">
+          <span class="icon-holder">
+            <i class="fa fa-bug"></i>
+          </span>
+          <span class="title">Exception</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
         <a id="nav-dashboard" class="dropdown-toggle" href="dashboard.html">
           <span class="icon-holder">
             <i class="fa fa-bar-chart"></i>
@@ -101,7 +109,7 @@
                                         </a>
                                         <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
                                             <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success pull-right"></span></a>
-	                                        
+	                                        <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger pull-right"></span></a>
 	                                        
 	                                        
 	                                        
@@ -125,7 +133,7 @@
                                             <div class="test-detail"> 
                                                 <p class="name">testMethod</p> 
                                                 <p class="duration text-sm">0h 0m 0s+0ms</p> 
-                                                <span class="datetime">17:56:29 PM</span>
+                                                <span class="datetime">12:20:42 PM</span>
                                             </div>
                                         </div>
                                         <div class="test-contents d-none">
@@ -133,8 +141,8 @@
                                                 <div class="p-v-10 d-inline-block"> 
                                                     <div class="info">
                                                         <h5 class="test-status text-pass">testMethod</h5>
-                                                        <span class='badge badge-success'>05.13.2025 17:56:29</span>
-                                                        <span class='badge badge-danger'>05.13.2025 17:56:29</span>
+                                                        <span class='badge badge-success'>05.14.2025 12:20:42</span>
+                                                        <span class='badge badge-danger'>05.14.2025 12:20:42</span>
                                                         <span class='badge badge-default'>0h 0m 0s+0ms</span>
                                                     </div>
                                                     <div class="m-t-10 m-l-5">
@@ -144,34 +152,99 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="test-item"  status="pass" test-id="2"
+                                    <li class="test-item"  status="fail" test-id="2"
                                             author=""
                                             tag=""
                                             device="">
-                                        <div class="status-avatar pass-bg">
-                                            <i class="fa fa-check text-white"></i>
+                                        <div class="status-avatar fail-bg">
+                                            <i class="fa fa-times text-white"></i>
                                         </div>
                                         <div class="open-test">
                                             <div class="test-detail"> 
                                                 <p class="name">testMethod</p> 
-                                                <p class="duration text-sm">0h 0m 0s+0ms</p> 
-                                                <span class="datetime">17:56:29 PM</span>
+                                                <p class="duration text-sm">0h 0m 0s+418ms</p> 
+                                                <span class="datetime">12:20:42 PM</span>
                                             </div>
                                         </div>
                                         <div class="test-contents d-none">
                                             <div class="detail-head">
                                                 <div class="p-v-10 d-inline-block"> 
                                                     <div class="info">
-                                                        <h5 class="test-status text-pass">testMethod</h5>
-                                                        <span class='badge badge-success'>05.13.2025 17:56:29</span>
-                                                        <span class='badge badge-danger'>05.13.2025 17:56:29</span>
-                                                        <span class='badge badge-default'>0h 0m 0s+0ms</span>
+                                                        <h5 class="test-status text-fail">testMethod</h5>
+                                                        <span class='badge badge-success'>05.14.2025 12:20:42</span>
+                                                        <span class='badge badge-danger'>05.14.2025 12:20:43</span>
+                                                        <span class='badge badge-default'>0h 0m 0s+418ms</span>
                                                     </div>
                                                     <div class="m-t-10 m-l-5">
                                                         
                                                     </div>
                                                 </div>
                                             </div>
+<div class="detail-body mt-4">                                              
+<table class="table table-sm">
+	<thead><tr>
+		<th class="status-col">Status</th>
+		<th class="timestamp-col">Timestamp</th>
+		<th class="details-col">Details</th>
+	</tr></thead>
+	<tbody>
+			<tr class="event-row">
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>12:20:43 PM</td>
+				<td>
+						<textarea disabled class="code-block">java.lang.AssertionError: expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertFalse(Assert.java:79)
+	at org.testng.Assert.assertFalse(Assert.java:89)
+	at com.endToEndTesting.orderCompleteTesting.testMethod(orderCompleteTesting.java:91)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:269)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</textarea>
+				</td>
+			</tr>
+	</tbody>
+</table>
+</div>
+<div class="detail-foot">
+	<ul class="attachments">
+		<li>
+			<a href="C:\Users\mohammed.amaansaiyed\git\repository\AutomationTestStore/screenshots/testMethod _ 20250514_122042.png" data-featherlight="image">
+				<div class="file-icon">
+					<i class="fa fa-file-image-o"></i> 
+				</div>
+				<div class="file-info">
+					<span class="file-name">Failure Screenshots</span>
+					<span class="file-size"> 161,211Kb</span>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
                                         </div>
                                     </li>
                                     <li class="test-item"  status="pass" test-id="3"
@@ -184,8 +257,8 @@
                                         <div class="open-test">
                                             <div class="test-detail"> 
                                                 <p class="name">SelectProduct</p> 
-                                                <p class="duration text-sm">0h 0m 5s+94ms</p> 
-                                                <span class="datetime">17:56:29 PM</span>
+                                                <p class="duration text-sm">0h 0m 5s+25ms</p> 
+                                                <span class="datetime">12:20:43 PM</span>
                                             </div>
                                         </div>
                                         <div class="test-contents d-none">
@@ -193,9 +266,9 @@
                                                 <div class="p-v-10 d-inline-block"> 
                                                     <div class="info">
                                                         <h5 class="test-status text-pass">SelectProduct</h5>
-                                                        <span class='badge badge-success'>05.13.2025 17:56:29</span>
-                                                        <span class='badge badge-danger'>05.13.2025 17:56:35</span>
-                                                        <span class='badge badge-default'>0h 0m 5s+94ms</span>
+                                                        <span class='badge badge-success'>05.14.2025 12:20:43</span>
+                                                        <span class='badge badge-danger'>05.14.2025 12:20:48</span>
+                                                        <span class='badge badge-default'>0h 0m 5s+25ms</span>
                                                     </div>
                                                     <div class="m-t-10 m-l-5">
                                                         
@@ -212,7 +285,7 @@
 	<tbody>
 			<tr class="event-row">
 				<td><i class="fa fa-check text-pass"></i></td>
-				<td>5:56:35 PM</td>
+				<td>12:20:48 PM</td>
 				<td>
 						Test Passed
 				</td>
@@ -232,8 +305,8 @@
                                         <div class="open-test">
                                             <div class="test-detail"> 
                                                 <p class="name">selectProductOne</p> 
-                                                <p class="duration text-sm">0h 0m 4s+951ms</p> 
-                                                <span class="datetime">17:56:35 PM</span>
+                                                <p class="duration text-sm">0h 0m 10s+190ms</p> 
+                                                <span class="datetime">12:20:48 PM</span>
                                             </div>
                                         </div>
                                         <div class="test-contents d-none">
@@ -241,9 +314,9 @@
                                                 <div class="p-v-10 d-inline-block"> 
                                                     <div class="info">
                                                         <h5 class="test-status text-pass">selectProductOne</h5>
-                                                        <span class='badge badge-success'>05.13.2025 17:56:35</span>
-                                                        <span class='badge badge-danger'>05.13.2025 17:56:40</span>
-                                                        <span class='badge badge-default'>0h 0m 4s+951ms</span>
+                                                        <span class='badge badge-success'>05.14.2025 12:20:48</span>
+                                                        <span class='badge badge-danger'>05.14.2025 12:20:58</span>
+                                                        <span class='badge badge-default'>0h 0m 10s+190ms</span>
                                                     </div>
                                                     <div class="m-t-10 m-l-5">
                                                         
@@ -260,7 +333,7 @@
 	<tbody>
 			<tr class="event-row">
 				<td><i class="fa fa-check text-pass"></i></td>
-				<td>5:56:40 PM</td>
+				<td>12:20:58 PM</td>
 				<td>
 						Test Passed
 				</td>
@@ -270,28 +343,28 @@
 </div>
                                         </div>
                                     </li>
-                                    <li class="test-item"  status="pass" test-id="5"
+                                    <li class="test-item"  status="fail" test-id="5"
                                             author=""
                                             tag=""
                                             device="">
-                                        <div class="status-avatar pass-bg">
-                                            <i class="fa fa-check text-white"></i>
+                                        <div class="status-avatar fail-bg">
+                                            <i class="fa fa-times text-white"></i>
                                         </div>
                                         <div class="open-test">
                                             <div class="test-detail"> 
                                                 <p class="name">CustomerDetails</p> 
-                                                <p class="duration text-sm">0h 0m 9s+376ms</p> 
-                                                <span class="datetime">17:56:40 PM</span>
+                                                <p class="duration text-sm">0h 0m 8s+821ms</p> 
+                                                <span class="datetime">12:20:58 PM</span>
                                             </div>
                                         </div>
                                         <div class="test-contents d-none">
                                             <div class="detail-head">
                                                 <div class="p-v-10 d-inline-block"> 
                                                     <div class="info">
-                                                        <h5 class="test-status text-pass">CustomerDetails</h5>
-                                                        <span class='badge badge-success'>05.13.2025 17:56:40</span>
-                                                        <span class='badge badge-danger'>05.13.2025 17:56:49</span>
-                                                        <span class='badge badge-default'>0h 0m 9s+376ms</span>
+                                                        <h5 class="test-status text-fail">CustomerDetails</h5>
+                                                        <span class='badge badge-success'>05.14.2025 12:20:58</span>
+                                                        <span class='badge badge-danger'>05.14.2025 12:21:07</span>
+                                                        <span class='badge badge-default'>0h 0m 8s+821ms</span>
                                                     </div>
                                                     <div class="m-t-10 m-l-5">
                                                         
@@ -307,14 +380,61 @@
 	</tr></thead>
 	<tbody>
 			<tr class="event-row">
-				<td><i class="fa fa-check text-pass"></i></td>
-				<td>5:56:49 PM</td>
+				<td><i class="fa fa-times text-fail"></i></td>
+				<td>12:21:07 PM</td>
 				<td>
-						Test Passed
+						<textarea disabled class="code-block">java.lang.AssertionError: expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertFalse(Assert.java:79)
+	at org.testng.Assert.assertFalse(Assert.java:89)
+	at com.endToEndTesting.orderCompleteTesting.CustomerDetails(orderCompleteTesting.java:123)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</textarea>
 				</td>
 			</tr>
 	</tbody>
 </table>
+</div>
+<div class="detail-foot">
+	<ul class="attachments">
+		<li>
+			<a href="C:\Users\mohammed.amaansaiyed\git\repository\AutomationTestStore/screenshots/CustomerDetails _ 20250514_122107.png" data-featherlight="image">
+				<div class="file-icon">
+					<i class="fa fa-file-image-o"></i> 
+				</div>
+				<div class="file-info">
+					<span class="file-name">Failure Screenshots</span>
+					<span class="file-size"> 58,856Kb</span>
+				</div>
+			</a>
+		</li>
+	</ul>
 </div>
                                         </div>
                                     </li>

@@ -18,7 +18,7 @@ import PageObjectModel.Home;
 import PageObjectModel.customerInformation;
 import PageObjectModel.ipadMacbookCategories;
 
-@Listeners({com.listeners.TestListener.class, com.listeners.RetryListener.class})
+@Listeners({ com.listeners.TestListener.class, com.listeners.RetryListener.class })
 public class orderCompleteTesting extends BasePageAutomtion {
 
 	public orderCompleteTesting() throws IOException {
@@ -30,7 +30,6 @@ public class orderCompleteTesting extends BasePageAutomtion {
 		driver = getDriver();
 		driver.get(getUrl());
 	}
-	
 
 	@Test(priority = 1)
 	public void SelectProduct() throws InterruptedException {
@@ -69,32 +68,36 @@ public class orderCompleteTesting extends BasePageAutomtion {
 	public void selectProductOne() throws InterruptedException {
 
 		SoftAssert softAssert = new SoftAssert();
-
-		ipadMacbookCategories ipad = new ipadMacbookCategories(driver);
+		
+		Home home = new Home(driver);
 		CommonLocator locator = new CommonLocator(driver);
+		ipadMacbookCategories ipad = new ipadMacbookCategories(driver);
 		ipad.getAppleMacbook().click();
 
 		Thread.sleep(3000);
 
-		locator.getAddToCart().click();
+		home.getAddToCart().click();
+		
+		Thread.sleep(5000);
 
 		locator.getShoppingBasket().click();
-		;
+		
+		
 
 	}
-	
+
 	@Test(retryAnalyzer = com.listeners.RetryAnalyzer.class)
 	public void testMethod() {
-	    Assert.assertFalse(true); // Force fail to test retry
+		Assert.assertFalse(true); // Force fail to test retry
 	}
 
 	@Test(priority = 3)
 	public void CustomerDetails() throws InterruptedException {
-		
-		//SoftAssert softAssert = new SoftAssert();
+
+		// SoftAssert softAssert = new SoftAssert();
 
 		customerInformation details = new customerInformation(driver);
-		
+
 		details.getFirstname().sendKeys("John");
 		details.getLastName().sendKeys("Williamson");
 		details.getAddress1().sendKeys("forest");
@@ -116,11 +119,11 @@ public class orderCompleteTesting extends BasePageAutomtion {
 		js.executeScript("window.scrollBy(0,500)");
 
 		details.getPrivacy().click();
-		
-		//Assert.assertFalse(true);
-		 
+
+		Assert.assertFalse(true);
+
 		details.getConfirmOrder().click();
-		
+
 	}
 
 }

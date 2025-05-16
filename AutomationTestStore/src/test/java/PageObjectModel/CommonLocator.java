@@ -8,18 +8,12 @@ public class CommonLocator {
 	
 	WebDriver driver;
 	
-	By addToCart = By.xpath("//button[contains(text(),'Add To Cart')]");
+	By backToStore = By.xpath("//a[@class='btn btn-default btn-lg']");
 	
-	By backToStore = By.xpath("//i[@class='fa fa-arrow-left']");
-	
-	By shoppingBasket = By.xpath("//i[@class='fa fa-shopping-basket']");
+	By shoppingBasket = By.xpath("//a[@id='cart']");
 	
 	public CommonLocator(WebDriver driver) {
 		this.driver = driver;
-	}
-	
-	public WebElement getAddToCart() {
-		return driver.findElement(addToCart);
 	}
 	
 	public WebElement getBackToStore() {
